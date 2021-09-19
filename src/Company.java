@@ -1,29 +1,24 @@
 import java.util.ArrayList;
 
-public class Employees extends ArrayList<Employee>{
+public class Company {
+    private ArrayList<Employee> employees = new ArrayList<>();
 
-    Employees(){
-        super();
+    Company(){
+
     }
 
-    public Employees(int initialCapacity) {
-        super(initialCapacity);
+    public void add(Employee employee) {
+        employees.add(employee);
     }
 
-    @Override
-    public boolean add(Employee employee) {
-        return super.add(employee);
-    }
-
-    @Override
     public int size() {
-        return super.size();
+        return employees.size();
     }
 
-    public static void printEmployeeData(Employees employees){
+    public static void printEmployeeData(Company company){
         System.out.println("Все работники с возрастом > 30 и без высшего образования");
         int i = 0;
-        for(Employee employee: employees){
+        for(Employee employee: company.employees){
             int age = employee.getAge();
             Education education = employee.getEducation();
             if(age > 30 && !education.equals(Education.HIGHER)){

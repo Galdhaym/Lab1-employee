@@ -21,14 +21,20 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
-        if(lastName.length() < 50){
+        if(lastName != null && !lastName.isEmpty()) {
             this.lastName = lastName;
+        }
+        else{
+            throw new Error("lastName must not be empty.");
         }
     }
 
     public void setAge(int age) {
         if(age > 0 && age < 120) {
             this.age = age;
+        }
+        else{
+            throw new Error("age must be more than 0 and less than 120.");
         }
     }
 
@@ -41,24 +47,17 @@ public class Employee {
                     this.education = Education.HIGHER;
                     break;
                 default:
-                    this.education = Education.UNEDUCATED;
+                    throw new Error("education must be one of two values: 'среднее', 'высшее'.");
             }
     }
 
     public void setPosition(String position) {
-        if(position.length() > 0) {
+        if(position != null && !position.isEmpty()) {
             this.position = position;
+        }
+        else{
+            throw new Error("position must not be empty.");
         }
     }
 
-    public Employee(String lastName, int age, Education education, String position) {
-        this.lastName = lastName;
-        this.age = age;
-        this.education = education;
-        this.position = position;
-    }
-
-    public Employee(){
-
-    }
 }

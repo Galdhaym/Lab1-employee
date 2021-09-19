@@ -1,7 +1,6 @@
 public enum Education {
     SECONDARY("Среднее"),
-    HIGHER("Высшее"),
-    UNEDUCATED("Не образованный");
+    HIGHER("Высшее");
 
     private final String education;
 
